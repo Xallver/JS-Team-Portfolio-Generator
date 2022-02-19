@@ -1,0 +1,72 @@
+const team = require('../index');
+const fs = require('fs');
+
+// creates the team
+function createTeam(team) {
+
+    // creates manager html
+    function showManager(manager) {
+        return `
+            <div class ="col-3">
+                <div class ="card text-dark bg-info mb-3 shadow p-3 mb-5 bg-body rounded" style="max-width: 18rem;">
+                    div class="card-header"> Manager</div>
+                        <div class ="card-body">
+                            <h5 class="card-title">${manager.getName()}</h5>
+                            <h5 class="card-title">${manager.getId()}</h5>
+                            <h5 class="card-title"><a href="mailto: ${manager.getEmail()}">${manager.getEmail()}</a></h5>
+                            <h5 class="card-title">${manager.getOfficeNumber()}</h5>
+                        </div>
+                </div>
+            </div>
+        `
+    };
+
+    // creates engineer html
+    function showEngineer(engineer) {
+        return `
+            <div class="col-3">
+                <div class="card text-dark bg-info mb-3 shadow p-3 mb-5 bg-body rounded" style="max-width: 18rem;">
+                    <div class="card-header">Engineer</div>
+                        <div class="card-body">
+                            <h5 class="card-title">${engineer.getName()}</h5>
+                            <h5 class="card-title">${engineer.getId()}</h5>
+                            <h5 class="card-title"><a href="mailto: ${engineer.getEmail()}">${engineer.getEmail()}</a></h5>
+                            <h5 class="card-title"><a href="https://github.com/${engineer.getGitHub()}" target="_blank">https://github.com/${engineer.getGitHub()}</a></h5>
+                        </div>
+                </div>
+            </div>
+        `
+    };
+
+    // creates intern html
+    function showIntern(intern) {
+        return `
+            <div class="col-3">
+                <div class="card text-dark bg-info mb-3 shadow p-3 mb-5 bg-body rounded" style="max-width: 18rem;">
+                    <div class="card-header">Intern</div>
+                        <div class="card-body">
+                            <h5 class="card-title">${intern.getName()}</h5>
+                            <h5 class="card-title">${intern.getId()}</h5>
+                            <h5 class="card-title"><a href="mailto: ${intern.getEmail()}">${intern.getEmail()}</a></h5>
+                            <h5 class="card-title">${intern.getSchool()}</h5>
+                        </div>
+                </div>
+            </div>
+        `
+    };
+
+    // creates empty html array
+    let html = [];
+
+    // pulls classes and pushes to html page
+    html.push(team.filter(emloyee => emloyee.getRole() === "Manager").map(manager => generateManager(manager)));
+    html.push(team.filter(emloyee => emloyee.getRole() === "Engineer").map(engineer => generateEngineer(engineer)).join(""));
+    html.push(team.filter(emloyee => emloyee.getRole() === "Intern").map(intern => generateIntern(intern)).join(""));
+    
+    return html.join("");
+
+};
+
+
+
+
