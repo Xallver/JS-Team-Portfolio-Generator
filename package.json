@@ -13,5 +13,16 @@
   },
   "devDependencies": {
     "jest": "^27.5.1"
-  }
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xallver/JS-Team-Profile-Generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Xallver/JS-Team-Profile-Generator/issues"
+  },
+  "homepage": "https://github.com/Xallver/JS-Team-Profile-Generator#readme"
 }
