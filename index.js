@@ -2,9 +2,10 @@ const inquirer = require('inquirer');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
+const Employee = require('./lib/Employee');
 
 const writeHTML = require('./src/writeFile');
-const Employee = require('./lib/Employee');
+
 
 let team = [];
 
@@ -75,13 +76,13 @@ const employeeQuestion = () => {
             message: "Please select an option from the list of 'Employees' that you would like to add to your team. Tip: To select all employees simply select 'Finish'",
             choices: ['Manager', 'Engineer', 'Intern', 'Finish']
         }
-    ).then(function(answer) {
-        if(answer.employeeList === 'Manager'){
-            promptUser();
-        } else if(answer.employeeList === 'Engineer'){
+    ).then(function(answer){
+        if(answer.employeeList === 'Engineer'){
             engineerQuestion();
-        } else if(answer.employeeList === 'Intern'){
+        }else if(answer.employeeList === 'Intern'){
             internQuestion();
+        }else if (answer.employeeList === 'Manager'){
+            promptUser();
         } else {
             console.log('Team inside employee question');
             return writeHTML(team);
@@ -201,7 +202,7 @@ const internQuestion = () => {
                     return false;
                 }
             }
-        },
+        }
     ]).then(function(answer) {
         team.push(new Intern(answer.name, answer.id, answer.email, answer.school))
     }).then(employeeQuestion)

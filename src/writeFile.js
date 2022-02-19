@@ -9,7 +9,7 @@ function createTeam(team) {
         return `
             <div class ="col-3">
                 <div class ="card text-dark bg-info mb-3 shadow p-3 mb-5 bg-body rounded" style="max-width: 18rem;">
-                    div class="card-header"> Manager</div>
+                    <div class="card-header"> Manager</div>
                         <div class ="card-body">
                             <h5 class="card-title">${manager.getName()}</h5>
                             <h5 class="card-title">${manager.getId()}</h5>
@@ -31,7 +31,7 @@ function createTeam(team) {
                             <h5 class="card-title">${engineer.getName()}</h5>
                             <h5 class="card-title">${engineer.getId()}</h5>
                             <h5 class="card-title"><a href="mailto: ${engineer.getEmail()}">${engineer.getEmail()}</a></h5>
-                            <h5 class="card-title"><a href="https://github.com/${engineer.getGitHub()}" target="_blank">https://github.com/${engineer.getGitHub()}</a></h5>
+                            <h5 class="card-title"><a href="https://github.com/${engineer.getGithub()}" target="_blank">https://github.com/${engineer.getGithub()}</a></h5>
                         </div>
                 </div>
             </div>
@@ -59,14 +59,14 @@ function createTeam(team) {
     let html = [];
 
     // pulls classes and pushes to html page
-    html.push(team.filter(emloyee => emloyee.getRole() === "Manager").map(manager => generateManager(manager)));
-    html.push(team.filter(emloyee => emloyee.getRole() === "Engineer").map(engineer => generateEngineer(engineer)));
-    html.push(team.filter(emloyee => emloyee.getRole() === "Intern").map(intern => generateIntern(intern)));
-
+    html.push(team.filter(emloyee => emloyee.getRole() === "Manager").map(manager => showManager(manager)).join(""));
+    html.push(team.filter(emloyee => emloyee.getRole() === "Engineer").map(engineer => showEngineer(engineer)));
+    html.push(team.filter(emloyee => emloyee.getRole() === "Intern").map(intern => showIntern(intern)));
     return html.join("");
 
 };
 
+// HTML template that gets generated which function is called
 function generateHTML(team) {
     return `
     <!DOCTYPE html>
@@ -94,7 +94,7 @@ function generateHTML(team) {
     `
 };
 
-
+// writes the file from data pulled from generateHTML function & places index file in dist folder
 const writeHTML = data => {
     return new Promise((resolve, reject) => {
         fs.writeFile('./dist/index.html', generateHTML(data), (err) => {
