@@ -62,11 +62,36 @@ function createTeam(team) {
     html.push(team.filter(emloyee => emloyee.getRole() === "Manager").map(manager => generateManager(manager)));
     html.push(team.filter(emloyee => emloyee.getRole() === "Engineer").map(engineer => generateEngineer(engineer)).join(""));
     html.push(team.filter(emloyee => emloyee.getRole() === "Intern").map(intern => generateIntern(intern)).join(""));
-    
+
     return html.join("");
 
 };
 
+function generateHTML(team) {
+    return `
+    <!DOCTYPE html>
+    <htl lang="en">
+    
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Team</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    </head>
 
+    <body>
+    <header>
+        <div class="p-3 mb-2 bg-primary.bg-gradient text-dark">
+            <p class="text-center fs-1">MY TEAM</p>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            ${createTeam(team)}
+        </div>
+    </div>
+    `
+};
 
 
