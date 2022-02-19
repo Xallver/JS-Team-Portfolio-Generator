@@ -60,8 +60,8 @@ function createTeam(team) {
 
     // pulls classes and pushes to html page
     html.push(team.filter(emloyee => emloyee.getRole() === "Manager").map(manager => generateManager(manager)));
-    html.push(team.filter(emloyee => emloyee.getRole() === "Engineer").map(engineer => generateEngineer(engineer)).join(""));
-    html.push(team.filter(emloyee => emloyee.getRole() === "Intern").map(intern => generateIntern(intern)).join(""));
+    html.push(team.filter(emloyee => emloyee.getRole() === "Engineer").map(engineer => generateEngineer(engineer)));
+    html.push(team.filter(emloyee => emloyee.getRole() === "Intern").map(intern => generateIntern(intern)));
 
     return html.join("");
 
@@ -95,3 +95,19 @@ function generateHTML(team) {
 };
 
 
+const writeHTML = data => {
+    return new Promise((resolve, reject) => {
+        fs.writeFile('./dist/index.html', generateHTML(data), (err) => {
+            if (err) {
+                reject(err);
+                return;
+            }
+            resolve({
+                ok: true, 
+                message: "My Team webpage was created!"
+            });
+        });
+    });
+}
+
+module.exports = writeHTML;
