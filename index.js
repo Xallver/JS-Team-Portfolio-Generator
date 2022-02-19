@@ -31,7 +31,7 @@ const promptUser = () => {
                 if (idInput) {
                     return true;
                 } else {
-                    console.log("Please enter ID number!")
+                    console.log("Please enter your Manager's ID number!")
                     return false;
                 }
             }
@@ -107,12 +107,12 @@ const engineerQuestion = () => {
         {
             type: 'number',
             name: 'id',
-            message: "Please enter Engineer's ID number: (Required)",
+            message: "Please enter your Engineer's ID number: (Required)",
             validate: idInput => {
                 if (idInput) {
                     return true;
                 } else {
-                    console.log("Please enter ID number!")
+                    console.log("Please enter your Engineer's ID number!")
                     return false;
                 }
             }
@@ -148,4 +148,65 @@ const engineerQuestion = () => {
     }).then(employeeQuestion)
 };
 
+const internQuestion = () => {
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: "Please enter your Intern's name: (Required)",
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log("Please enter your Intern's name!")
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'number',
+            name: 'id',
+            message: "Please enter Intern's ID number: (Required)",
+            validate: idInput => {
+                if (idInput) {
+                    return true;
+                } else {
+                    console.log("Please enter your Intern's ID number!")
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: "Please enter your Intern's email address: (Required)",
+            validate: emailInput => {
+                if (emailInput) {
+                    return true;
+                } else {
+                    console.log("Please enter your Intern's email!")
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'school',
+            message: "Please enter your Intern's school: (Required)",
+            validate: schoolInput => {
+                if (schoolInput) {
+                    return true;
+                } else {
+                    console.log("Please enter your Intern's school!")
+                    return false;
+                }
+            }
+        },
+    ]).then(function(answer) {
+        team.push(new Intern(answer.name, answer.id, answer.email, answer.school))
+    }).then(employeeQuestion)
+}
 
+promptUser();
+
+module.exports = team;
