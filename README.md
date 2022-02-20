@@ -8,7 +8,6 @@ Object-Oriented Programming & Test-Driven Development
 * [Installation](#Installation)
 * [Contributors](#Contributors)
 * [Tests](#Tests)
-* [License](#License)
 * [Demo](#Demo)
 * [Repository](#Repository-Link)
 * [Questions](#Questions)
@@ -41,11 +40,6 @@ James Stanley - used module 10 week's work as reference and some of module 9 cha
 ## Tests
 
 Run 'npm test' in the terminal after installing jest.
-
-## License:
-
-This application is licensed by:
-[![License](https://img.shields.io/badge/License--blue.svg)](https://opensource.org/licenses/)
 
 ## Demo
 * [Video Demo](https://drive.google.com/file/d/1HtEgO9coZ1FRm2HYQeU3ChnU6nCJKaVM/view)
