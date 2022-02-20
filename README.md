@@ -1,4 +1,4 @@
-# JS-Team-Portfolio-Generator
+# JS-Team-Profile-Generator
 Object-Oriented Programming & Test-Driven Development
 
 ### Table of Contents
