@@ -53,15 +53,7 @@ const promptUser = () => {
         {
             type: 'number',
             name: 'officeNumber',
-            message: "Please enter Manager's office number: (Required)",
-            validate: officeNumberInput => {
-                if (officeNumberInput) {
-                    return true;
-                } else {
-                    console.log("Please enter Manager's office number!")
-                    return false;
-                }
-            }
+            message: "Please enter Manager's office number: (Required)"
         }
     ]).then(function (answer) {
         team.push(new Manager(answer.name, answer.id, answer.email, answer.officeNumber))
