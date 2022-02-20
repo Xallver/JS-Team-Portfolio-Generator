@@ -42,7 +42,7 @@ James Stanley - used module 10 week's work as reference and some of module 9 cha
 Run 'npm test' in the terminal after installing jest.
 
 ## Demo
-* [Video Demo](https://drive.google.com/file/d/1HtEgO9coZ1FRm2HYQeU3ChnU6nCJKaVM/view)
+* [Video Demo](https://watch.screencastify.com/v/CtB93ZSGJfEFNEdQby0N)
 
 ## Repository Link
 [Repo Link](https://github.com/Xallver/JS-Team-Profile-Generator)
