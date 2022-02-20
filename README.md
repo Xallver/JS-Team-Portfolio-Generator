@@ -11,7 +11,7 @@ Object-Oriented Programming & Test-Driven Development
 * [License](#License)
 * [Demo](#Demo)
 * [Repository](#Repository-Link)
-* [Questions](#questions)
+* [Questions](#Questions)
 
 # Description
 This is a Team Profile Generator that uses command-line to capture user's input by using Node. This app requests info from user regarding the members of his team and creates a HTML file that displays users input. Before user can use this application, they must run in terminal these commands: npm init, npm install inquirer, & npm install jest --save-dev & update script: "test" value in package.json to "Jest". 
@@ -51,7 +51,8 @@ This application is licensed by:
 * [Video Demo]()
 
 ## Repository Link
+[Repo Link](https://github.com/Xallver/JS-Team-Profile-Generator)
 
-## Questions?
+## Questions
 
 Contact Xallver on GitHub or send an email to jamesstanley11@gmail.com.
